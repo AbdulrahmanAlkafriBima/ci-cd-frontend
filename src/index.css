@@ -1,0 +1,308 @@
+@import "@fontsource/plus-jakarta-sans";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+/* @custom-variant sidebar (&:where(.sidebar, .sidebar *)); */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Typography */
+  --font-family-base: 'Plus Jakarta Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --heading-xl-size: 24px;
+  --heading-xl-line: 30px;
+  --heading-l-size: 18px;
+  --heading-l-line: 23px;
+  --heading-m-size: 15px;
+  --heading-m-line: 19px;
+  --heading-s-size: 12px;
+  --heading-s-line: 15px;
+  --heading-s-kerning: 2.4px;
+  --body-m-size: 13px;
+  --body-m-line: 23px;
+  --body-s-size: 12px;
+  --body-s-line: 15px;
+
+  /* Dropdown Menu */
+  --popover: var(--color-bg);
+  --popover-foreground: var(--color-text);
+  --accent: var(--color-surface);
+  --accent-foreground: var(--color-text);
+  --muted: var(--color-surface);
+  --muted-foreground: var(--color-info);
+  --border: var(--color-info-light);
+  --input: var(--color-info-light);
+  --ring: var(--color-primary);
+  --radius: 0.5rem;
+
+  /* Color Palette (Dark Theme Default) */
+  --color-primary: #635FC7;
+  --color-primary-light: #A8A4FF;
+  --color-bg: #000112;
+  --color-bg-alt: #20212C;
+  --color-surface: #2B2C37;
+  --color-surface-alt: #3E3F4E;
+  --color-accent: #EA5555;
+  --color-accent-light: #FF9898;
+  --color-info: #828FA3;
+  --color-info-light: #E4EBFA;
+  --color-white: #FFFFFF;
+  --color-grey-light: #F4F7FD;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #828FA3;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --button-bg: var(--color-primary);
+  --button-bg-hover: #726eff;
+  --button-text: var(--color-white);
+  --sidebar-active-bg: var(--color-primary);
+  --sidebar-active-bg-hover: #a18aff;
+  --sidebar-active-text-hover: #d8c8ff;
+}
+
+[data-theme="light"] {
+  --color-primary: #635FC7;
+  --color-primary-light: #A8A4FF;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F4F7FD;
+  --color-surface: #E4EBFA;
+  --color-surface-alt: #FFFFFF;
+  --color-accent: #EA5555;
+  --color-accent-light: #FF9898;
+  --color-info: #828FA3;
+  --color-info-light: #3E3F4E;
+  --color-white: #FFFFFF;
+  --color-grey-light: #F4F7FD;
+  --color-text: #20212C;
+  --color-text-secondary: #828FA3;
+  --button-bg: var(--color-primary);
+  --button-bg-hover: #726eff;
+  --button-text: var(--color-white);
+  --sidebar-active-bg: var(--color-primary);
+  --sidebar-active-bg-hover: #a18aff;
+  --sidebar-active-text-hover: #d8c8ff;
+}
+
+[data-theme="dark"] {
+  --color-primary: #635FC7;
+  --color-primary-light: #A8A4FF;
+  --color-bg: #000112;
+  --color-bg-alt: #20212C;
+  --color-surface: #2B2C37;
+  --color-surface-alt: #3E3F4E;
+  --color-accent: #EA5555;
+  --color-accent-light: #FF9898;
+  --color-info: #828FA3;
+  --color-info-light: #E4EBFA;
+  --color-white: #FFFFFF;
+  --color-grey-light: #F4F7FD;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #828FA3;
+  --button-bg: var(--color-primary-light);
+  --button-bg-hover: #bcb8ff;
+  --button-text: var(--color-primary);
+  --sidebar-active-bg: var(--color-primary-light);
+  --sidebar-active-bg-hover: #a18aff;
+  --sidebar-active-text-hover: #d8c8ff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: #635FC7;
+    --color-primary-light: #A8A4FF;
+    --color-bg: #FFFFFF;
+    --color-bg-alt: #F4F7FD;
+    --color-surface: #E4EBFA;
+    --color-surface-alt: #FFFFFF;
+    --color-accent: #EA5555;
+    --color-accent-light: #FF9898;
+    --color-info: #828FA3;
+    --color-info-light: #3E3F4E;
+    --color-white: #FFFFFF;
+    --color-grey-light: #F4F7FD;
+    --color-text: #20212C;
+    --color-text-secondary: #828FA3;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #635FC7;
+    --color-primary-light: #A8A4FF;
+    --color-bg: #000112;
+    --color-bg-alt: #20212C;
+    --color-surface: #2B2C37;
+    --color-surface-alt: #3E3F4E;
+    --color-accent: #EA5555;
+    --color-accent-light: #FF9898;
+    --color-info: #828FA3;
+    --color-info-light: #E4EBFA;
+    --color-white: #FFFFFF;
+    --color-grey-light: #F4F7FD;
+    --color-text: #FFFFFF;
+    --color-text-secondary: #828FA3;
+  }
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  overflow: hidden;
+  height: 100%;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex; /* Ensure #root is a flex container if App uses flex for its children */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Example usage for headings and body */
+.heading-xl {
+  font-size: var(--heading-xl-size);
+  line-height: var(--heading-xl-line);
+  font-weight: var(--font-weight-bold);
+}
+.heading-l {
+  font-size: var(--heading-l-size);
+  line-height: var(--heading-l-line);
+  font-weight: var(--font-weight-bold);
+}
+.heading-m {
+  font-size: var(--heading-m-size);
+  line-height: var(--heading-m-line);
+  font-weight: var(--font-weight-bold);
+}
+.heading-s {
+  font-size: var(--heading-s-size);
+  line-height: var(--heading-s-line);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--heading-s-kerning);
+}
+.body-m {
+  font-size: var(--body-m-size);
+  line-height: var(--body-m-line);
+  font-weight: var(--font-weight-medium);
+}
+.body-s {
+  font-size: var(--body-s-size);
+  line-height: var(--body-s-line);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Utility classes for background and text colors */
+.bg-primary { background: var(--color-primary); }
+.bg-surface { background: var(--color-surface); }
+.bg-surface-alt { background: var(--color-surface-alt); }
+.bg-accent { background: var(--color-accent); }
+.bg-info { background: var(--color-info); }
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-info { color: var(--color-info); }
+.text-secondary { color: var(--color-text-secondary); }
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+.dark {
+  --color-primary: #635FC7;
+  --color-primary-light: #A8A4FF;
+  --color-bg: #000112;
+  --color-bg-alt: #20212C;
+  --color-surface: #2B2C37;
+  --color-surface-alt: #3E3F4E;
+  --color-accent: #EA5555;
+  --color-accent-light: #FF9898;
+  --color-info: #828FA3;
+  --color-info-light: #E4EBFA;
+  --color-white: #FFFFFF;
+  --color-grey-light: #F4F7FD;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #828FA3;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Utility classes for button backgrounds */
+.bg-button { background: var(--button-bg); }
+.bg-button-hover:hover { background: var(--button-bg-hover); }
+.text-button { color: var(--button-text); }
+.bg-sidebar-active { background: var(--sidebar-active-bg); }
