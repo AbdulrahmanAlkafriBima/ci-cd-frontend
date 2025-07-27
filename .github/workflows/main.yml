@@ -1,0 +1,39 @@
+name: React CI pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test-environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4.2.2
+        
+      - name: setup nodeJS
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: 22
+          
+      - name: test code
+        run: npm test
+
+  build-project:
+    needs: test-environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4.2.2
+        
+      - name: setup nodeJS
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: 22
+          
+      - name: build project
+        run: npm run build
+        
