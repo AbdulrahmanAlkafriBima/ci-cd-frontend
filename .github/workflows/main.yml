@@ -7,33 +7,33 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   test-environment:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v4.2.2
         
-      - name: setup nodeJS
+      - name: Setup NodeJS
         uses: actions/setup-node@v3.9.1
         with:
           node-version: 22
           
-      - name: test code
-        run: npm test
+      - name: Run CI Test Script
+        run: ./ci-test.sh
 
   build-project:
     needs: test-environment
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v4.2.2
         
-      - name: setup nodeJS
+      - name: Setup NodeJS
         uses: actions/setup-node@v3.9.1
         with:
           node-version: 22
           
-      - name: build project
+      - name: Build project
         run: npm run build
-        
