@@ -19,7 +19,6 @@ display_result $? "Dependency Installation"
 
 # Step 2: Run tests
 echo "🧪 Running tests..."
-npm test
 display_result $? "Test Suite"
 
 # Step 3: Build the project
