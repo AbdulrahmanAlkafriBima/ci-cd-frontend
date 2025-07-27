@@ -21,19 +21,10 @@ jobs:
           node-version: 22
           
       - name: Run CI Test Script
-        run: ./ci-test.sh
-
-  build-project:
-    needs: test-environment
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4.2.2
-        
-      - name: Setup NodeJS
-        uses: actions/setup-node@v3.9.1
-        with:
-          node-version: 22
+        shell: bash
+        run: |
+          chmod +x ci-test.sh
+          ./ci-test.sh
           
       - name: Build project
         run: npm run build
